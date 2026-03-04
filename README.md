@@ -187,39 +187,42 @@ Payment Simulator
 ---
 
 # Detailed Architecture Diagram
-            +----------------------+
-            |     React Web App    |
-            |  (Worker Dashboard)  |
-            +----------+-----------+
-                       |
-                       | REST API
-                       |
-            +----------v-----------+
-            |    Spring Boot API   |
-            |  (Core Backend)      |
-            +----------+-----------+
-                       |
-     -----------------------------------------------
-        |                    |                   |
-        |                    |                   |
-+--------v--------+ +--------v--------+ +-------v--------+
-| PostgreSQL DB   | | Python AI Engine| | Event Monitor  |
-| Workers         | | Risk Prediction | | Weather API    |
-| Policies        | | Fraud Detection | | AQI API        |
-| Claims          | | Smart Payout    | | Alerts         |
-+-----------------+ +-----------------+ +----------------+
-                       |
-                       v
-            +----------------------+
-            | Claim Automation     |
-            | Engine               |
-            +----------+-----------+
-                       |
-                       v
-            +----------------------+
-            | Payment Simulator    |
-            | (Razorpay Sandbox)   |
-            +----------------------+
+
+```
+                +----------------------+
+                |     React Web App    |
+                |  (Worker Dashboard)  |
+                +----------+-----------+
+                           |
+                           | REST API
+                           |
+                +----------v-----------+
+                |    Spring Boot API   |
+                |   (Core Backend)     |
+                +----------+-----------+
+                           |
+         ------------------------------------------
+         |                    |                   |
+         |                    |                   |
++--------v--------+  +--------v--------+  +-------v--------+
+|  PostgreSQL DB  |  | Python AI Engine|  | Event Monitor  |
+|  Workers        |  | Risk Prediction |  | Weather API    |
+|  Policies       |  | Fraud Detection |  | AQI API        |
+|  Claims         |  | Smart Payout    |  | Alerts         |
++-----------------+  +-----------------+  +----------------+
+                           |
+                           v
+                +----------------------+
+                | Claim Automation     |
+                | Engine               |
+                +----------+-----------+
+                           |
+                           v
+                +----------------------+
+                | Payment Simulator    |
+                | (Razorpay Sandbox)   |
+                +----------------------+
+```
 
 ### Architecture Summary
 
@@ -298,37 +301,40 @@ Payment Simulation
 ---
 
 # Core Workflow
+
+```
 Worker Registration
-|
-v
+        |
+        v
 Create Worker Profile
-|
-v
+        |
+        v
 AI Risk Assessment
-|
-v
+        |
+        v
 Weekly Policy Selection
-|
-v
+        |
+        v
 System Monitors Disruptions
-|
-v
+        |
+        v
 Disruption Detected
-|
-v
+        |
+        v
 Claim Automatically Triggered
-|
-v
+        |
+        v
 Smart Payout Calculator
-|
-v
+        |
+        v
 Fraud Detection Check
-|
-v
+        |
+        v
 Payment Processed
-|
-v
+        |
+        v
 Worker Receives Compensation
+```
 
 ---
 
@@ -344,22 +350,23 @@ Worker Receives Compensation
 
 # Repository Structure
 
-
+```
 gigshield-ai
 │
 ├── frontend
-│ └── react-app
+│   └── react-app
 │
 ├── backend
-│ └── springboot-api
+│   └── springboot-api
 │
 ├── ai-engine
-│ └── python-models
+│   └── python-models
 │
 ├── docs
-│ └── architecture-diagrams
+│   └── architecture-diagrams
 │
 └── README.md
+```
 ---
 
 # Demo Video
@@ -380,11 +387,3 @@ A short demonstration video explaining the solution and architecture will be pro
 - Member 4  
 
 ---
-
-# Steps to Create Git Repository and Push Code
-
-### 1 Create a new repository on GitHub
-
-Go to **GitHub → New Repository**
-
-Repository name:
