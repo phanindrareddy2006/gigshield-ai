@@ -199,14 +199,14 @@ Payment Simulator
             |  (Core Backend)      |
             +----------+-----------+
                        |
-     ------------------------------------------
-     |                    |                   |
-     |                    |                   |
+     -----------------------------------------------
+        |                    |                   |
+        |                    |                   |
 +--------v--------+ +--------v--------+ +-------v--------+
-| PostgreSQL DB | | Python AI Engine| | Event Monitor |
-    | Workers | | Risk Prediction | | Weather API |
-    | Policies | | Fraud Detection | | AQI API |
-    | Claims | | Smart Payout | | Alerts |
+| PostgreSQL DB   | | Python AI Engine| | Event Monitor  |
+| Workers         | | Risk Prediction | | Weather API    |
+| Policies        | | Fraud Detection | | AQI API        |
+| Claims          | | Smart Payout    | | Alerts         |
 +-----------------+ +-----------------+ +----------------+
                        |
                        v
@@ -299,35 +299,35 @@ Payment Simulation
 
 # Core Workflow
 Worker Registration
-        |
-        v
+|
+v
 Create Worker Profile
-        |
-        v
+|
+v
 AI Risk Assessment
-        |
-        v
+|
+v
 Weekly Policy Selection
-        |
-        v
+|
+v
 System Monitors Disruptions
-        |
-        v
+|
+v
 Disruption Detected
-        |
-        v
+|
+v
 Claim Automatically Triggered
-        |
-        v
+|
+v
 Smart Payout Calculator
-        |
-        v
+|
+v
 Fraud Detection Check
-        |
-        v
+|
+v
 Payment Processed
-        |
-        v
+|
+v
 Worker Receives Compensation
 
 ---
@@ -343,22 +343,23 @@ Worker Receives Compensation
 ---
 
 # Repository Structure
+
+
 gigshield-ai
 │
 ├── frontend
-│ └── React Web App
+│ └── react-app
 │
 ├── backend
-│ └── Spring Boot API
+│ └── springboot-api
 │
 ├── ai-engine
-│ └── Python ML models
+│ └── python-models
 │
 ├── docs
-│ └── Architecture diagrams
+│ └── architecture-diagrams
 │
 └── README.md
-
 ---
 
 # Demo Video
