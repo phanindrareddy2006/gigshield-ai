@@ -381,7 +381,7 @@ A short demonstration video explaining the solution and architecture will be pro
 
 **Team Members**
 
-- [Phanindra Reddy](https://github.com/phanindrareddy0210)
+- [Phanindra Reddy](https://github.com/phanindrareddy2006)
 - [Tejo Bhargavi](https://github.com/Bhargavi6667)
 - [Hima Sisira](https://github.com/himasisira)
 - [Bhuvana Sai](https://github.com)  
