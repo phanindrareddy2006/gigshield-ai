@@ -14,18 +14,21 @@ public class FraudLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    // THIS FIELD IS REQUIRED
-    @ManyToOne
-    @JoinColumn(name = "worker_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "worker_id", nullable = false)
     private Worker worker;
 
+    @Column(name = "fraud_type")
     private String fraudType;
 
+    @Column(name = "risk_score")
     private Double riskScore;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private FraudStatus status;
 
     public enum FraudStatus {

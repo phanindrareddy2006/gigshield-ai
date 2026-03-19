@@ -52,25 +52,12 @@ export default function Plans() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [bubbleMessage, setBubbleMessage] = useState('')
   const workerId = localStorage.getItem('workerId')
 
   const handlePlanSelect = async (plan) => {
-    setLoading(true)
-    setError('')
-
-    try {
-      const response = await policyAPI.create({
-        workerId,
-        planType: plan.id,
-        monthlyPremium: plan.price,
-      })
-      localStorage.setItem('policyId', response.data.id)
-      navigate('/dashboard')
-    } catch (err) {
-      setError(err.response?.data?.message || 'Failed to select plan. Please try again.')
-    } finally {
-      setLoading(false)
-    }
+    setBubbleMessage('Feature will be available soon')
+    setTimeout(() => setBubbleMessage(''), 3000)
   }
 
   if (!workerId) {
@@ -90,7 +77,13 @@ export default function Plans() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12 relative">
+      {bubbleMessage && (
+        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-blue-600 text-white px-6 py-3 rounded-full shadow-xl flex items-center space-x-2 animate-bounce">
+          <span className="text-xl">ℹ️</span>
+          <span className="font-semibold">{bubbleMessage}</span>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl font-bold text-center mb-4">Insurance Plans</h1>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">

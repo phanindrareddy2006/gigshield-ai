@@ -387,3 +387,143 @@ A short demonstration video explaining the solution and architecture will be pro
 - [Bhuvana Sai](https://github.com)  
 
 ---
+
+## 🔐 Adversarial Defense & Anti-Spoofing Strategy
+
+### 🚨 Problem Statement
+
+GigShield operates in a high-risk environment where fraudulent users may attempt to exploit the system by:
+
+* Spoofing GPS locations
+* Claiming fake disruptions (rain, strikes, outages)
+* Triggering illegitimate insurance payouts
+
+This can lead to **financial loss, system abuse, and reduced trust**.
+
+---
+
+### 🧠 Our Solution: Multi-Signal Fraud Detection System
+
+Instead of relying solely on GPS data, GigShield uses a **multi-layered validation approach** to ensure claims are legitimate.
+
+---
+
+### 🔍 1. Behavioral Analysis
+
+We analyze user activity patterns to detect anomalies:
+
+* Delivery activity history (recent orders, active sessions)
+* Sudden claim requests without prior work activity
+* Unrealistic movement patterns (e.g., teleporting locations)
+
+👉 If behavior deviates from normal patterns, the claim is flagged.
+
+---
+
+### 📱 2. Device & Sensor Validation
+
+We verify whether the user is genuinely active:
+
+* Accelerometer & motion sensor data to detect movement
+* App usage patterns (foreground/background activity)
+* Device consistency checks (sudden device/location switches)
+
+👉 Helps detect users who are stationary but claiming disruption.
+
+---
+
+### 🌦️ 3. Environmental Verification
+
+We cross-check claims with real-world data:
+
+* Weather APIs (rain, storms, extreme conditions)
+* City-level disruption feeds (strikes, outages)
+* Geo-validation of claimed location vs actual conditions
+
+👉 Ensures the disruption actually occurred at that location.
+
+---
+
+### ⚖️ 4. Fraud Risk Scoring System
+
+Each claim is assigned a **risk score** based on multiple signals:
+
+* Low Risk → Auto-approved
+* Medium Risk → Delayed + Additional verification
+* High Risk → Flagged for manual review
+
+---
+
+### 🛡️ 5. Adaptive Response System
+
+To maintain user trust:
+
+* Legitimate users are **not blocked immediately**
+* Suspicious claims are **reviewed, not rejected blindly**
+* Repeat offenders are tracked and restricted
+
+---
+
+### 🔁 6. Continuous Learning (Future Scope)
+
+* Machine Learning models to improve fraud detection accuracy
+* Pattern recognition from past fraudulent claims
+* Dynamic thresholds based on real-world data trends
+
+---
+
+### 🎯 Key Advantage
+
+GigShield moves beyond simple GPS-based validation and introduces a **context-aware, intelligent fraud detection system**, making it:
+
+* More secure 🔐
+* More reliable 📊
+* More scalable 🚀
+
+---
+
+### 💡 Summary
+
+> "We don’t just trust user input — we verify it using multiple real-world signals."
+
+---
+
+### 🧩🔥 FRAUD DETECTION ARCHITECTURE
+```
+        ┌────────────────────┐
+        │   React Frontend   │
+        │ (Worker App UI)    │
+        └─────────┬──────────┘
+                  │
+                  ▼
+        ┌────────────────────┐
+        │   API Gateway      │
+        │ (Spring Boot)      │
+        └─────────┬──────────┘
+                  │
+        ┌─────────┼─────────┐
+        ▼                   ▼
+┌───────────────┐   ┌────────────────┐
+│ Claim Service │   │ Worker Service │
+└──────┬────────┘   └────────────────┘
+       │
+       ▼
+┌──────────────────────────────┐
+│  🧠 Fraud Detection Engine   │
+│------------------------------│
+│ 1. Behavior Analyzer         │
+│ 2. Sensor Validator          │
+│ 3. Geo/Weather Validator     │
+│ 4. Risk Scoring Module       │
+└──────────────┬───────────────┘
+               │
+       ┌───────┼────────┬────────────┐
+       ▼       ▼        ▼            ▼
+ Low Risk  Medium Risk  High Risk   Fraud Log
+ (Auto)    (Delay)      (Review)    (DB Save)
+   │          │            │
+   ▼          ▼            ▼
+┌────────┐ ┌────────┐ ┌────────────┐
+│ Payout │ │ Verify │ │ Manual Ops │
+└────────┘ └────────┘ └────────────┘
+```

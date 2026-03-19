@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.*;
  * REST Controller for Payout calculation endpoints.
  */
 @RestController
-@RequestMapping("/payout")
-@RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/payout")
 public class PayoutController {
 
     private final PayoutService payoutService;
+
+    public PayoutController(PayoutService payoutService) {
+        this.payoutService = payoutService;
+    }
 
     /**
      * Calculate payout based on income and disruption duration.

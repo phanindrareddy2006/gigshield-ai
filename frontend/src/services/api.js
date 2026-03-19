@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Vite exposes environment variables under import.meta.env
 // fallback to localhost if not provided
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
+const API_BASE_URL = '/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -14,6 +14,8 @@ const api = axios.create({
 // Worker endpoints
 export const workerAPI = {
   register: (workerData) => api.post('/workers/register', workerData),
+  login: (credentials) => api.post('/workers/login', credentials),
+  logout: () => api.post('/workers/logout'),
   getById: (id) => api.get(`/workers/${id}`),
 }
 
@@ -26,7 +28,7 @@ export const policyAPI = {
 // Claim endpoints
 export const claimAPI = {
   trigger: (claimData) => api.post('/claims/trigger', claimData),
-  getByWorker: (workerId) => api.get(`/claims/${workerId}`),
+  getByWorker: (workerId) => api.get(`/claims/worker/${workerId}`),
 }
 
 // Payout endpoints
